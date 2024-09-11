@@ -155,7 +155,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{str(count).zfill(3)}) {name1[:60]}'
+            name = f'{name1[:200]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -171,8 +171,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[🎬] Vid_ID : {str(count).zfill(3)}**\n**Title : ** {name1}\n**Batch Name :** {raw_text0}\n\n**Downloaded by : {MR}**'
-                cc1 = f'**[📕] Pdf_ID : {str(count).zfill(3)}**\n**Title : ** {name1}\n**Batch Name :**{raw_text0}\n\n**Downloaded by : {MR}**'
+                cc = f'**[🎬] Vid_ID : {str(count).zfill(3)}**\n**Title : ** {name}\n**Batch Name :** {raw_text0}\n\n**Downloaded by : {MR}**'
+                cc1 = f'**[📕] Pdf_ID : {str(count).zfill(3)}**\n**Title : ** {name}\n**Batch Name :**{raw_text0}\n\n**Downloaded by : {MR}**'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
